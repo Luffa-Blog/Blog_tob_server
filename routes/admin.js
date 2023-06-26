@@ -1,11 +1,20 @@
 const express = require("express")
 const router = express.Router()
-const {login} =require('../service/adminService')
+const { login } = require('../service/adminService')
+const { formatResponse } = require("../utils/tool")
 
 
-router.post('/login', (req, res) => {
 
-    login(req.body)
+router.post('/login',async (req, res) => {
+
+    const data =await login(req.body)
+    if(data===-1){
+        res.send(formatResponse(201,"账号或密码错误",data))
+    }else{
+        res.send(formatResponse(200, "数据获取成功", data))
+    }
+
+
 })
 
 
