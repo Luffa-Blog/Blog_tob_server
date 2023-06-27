@@ -6,6 +6,12 @@ const { formatResponse } = require("../utils/tool")
 
 
 router.post('/login',async (req, res) => {
+    console.log(req.body.qrcode.toLowerCase() !== req.session.qrcode.toLowerCase());
+
+    if (req.body.qrcode == undefined || req.body.qrcode.toLowerCase() !== req.session.qrcode.toLowerCase()){
+
+      return  res.send(formatResponse(202, `验证码有误`, -1))
+    }
 
     const data =await login(req.body)
     if(data===-1){
@@ -14,8 +20,9 @@ router.post('/login',async (req, res) => {
         res.send(formatResponse(200, "数据获取成功", data))
     }
 
-
 })
+
+
 
 
 
