@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { createQrCode } = require("../service/qrcodeService")
-
+const { formatResponse } =require('../utils/tool')
 
 router.post('/', async (req, res) => {
 
@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
     console.log(req.session);
     res.setHeader('Content-Type', "image/svg+xml")
    
-    res.send(code.data);
+    res.send(formatResponse(200,"请求成功",code.data));
 
 })
 module.exports = router

@@ -6,6 +6,8 @@ const { formatResponse } = require("../utils/tool")
 
 
 router.post('/login',async (req, res) => {
+    console.log(req.session.qrcode);
+    
     console.log(req.body.qrcode.toLowerCase() !== req.session.qrcode.toLowerCase());
 
     if (req.body.qrcode == undefined || req.body.qrcode.toLowerCase() !== req.session.qrcode.toLowerCase()){
