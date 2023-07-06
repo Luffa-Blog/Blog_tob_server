@@ -2,26 +2,30 @@
 const { DataTypes } = require('sequelize')
 const seqs = require('../dbContent')
 
-module.exports = seqs.define('article', {//这里是连接数据库以后调用define方法 去创建一张表并且添加字段
+module.exports = seqs.define('user', {//这里是连接数据库以后调用define方法 去创建一张表并且添加字段
     // 这张表有哪些字段
- 
-    title: {//文章名称
+
+    name: {//个人姓名
         type: DataTypes.STRING,
         allowNull: false
     },
-    content: {//文章内容
+    codeName:{//昵称
         type: DataTypes.STRING,
         allowNull: false
     },
-    createDate: {//创建时间
+    introduce: {//自我介绍
         type: DataTypes.STRING,
         allowNull: false
     },
-    class: {//分类
-        type: DataTypes.BOOLEAN,//生活(fasle)or技术（true）
+    sex: {//性别
+        type: DataTypes.BOOLEAN,//0女 1男
         allowNull: false
     },
-    img: {//封面图片
+    birthday: {//年龄
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    slogan: {//标语
         type: DataTypes.STRING,
         allowNull: false
     }
