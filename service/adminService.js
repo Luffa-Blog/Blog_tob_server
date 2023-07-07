@@ -29,7 +29,7 @@ module.exports.login = async (data) => {
     }
 
     // 利用jwt对数据加密形成token
-    const token = jwt.sign({
+    const token =  jwt.sign({
         //用户信息
         username: back[0].dataValues.username,
         level: back[0].dataValues.level,
@@ -38,8 +38,10 @@ module.exports.login = async (data) => {
         md5(ENV.JWT_SCRET),//加密一下解密token的加密名称
         { expiresIn: 60 * 60 * 24 * duration }//过期时间进行加密
     )
+
     // 然后将token和用户的信息返回给路由
-    
+
+
     return {
         token,
         data,
