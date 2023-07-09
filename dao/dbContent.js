@@ -13,7 +13,7 @@ const env = require('./ENV')
 const sequelize = new Sequelize(env.DB_NAME, env.DB_USER, env.DB_PWD, {
     host: env.DB_HOST,
     dialect: env.DB_DIALECT,
-    logging: false,//控制sql语句是否在控制台显示
+    logging: true,//控制sql语句是否在控制台显示
 })
 
 //这里是测试是否连接成功， 
