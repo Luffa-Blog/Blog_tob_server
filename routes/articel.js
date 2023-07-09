@@ -21,12 +21,17 @@ router.post("/select", async (req, res) => {
        return res.send(formatResponse(code = 201, "未查询到数据", ))
     }
     if (data==="dateError") {
-      return  res.send(formatResponse(code = 202, "时间戳不对", ))
+      return  res.send(formatResponse(code = 202, "时间戳为空或者时间戳不对", ))
     }
 
    return  res.send(formatResponse(code = 200, "请求成功", data.map(item => item.dataValues)));
 
 
+
+})
+
+
+router.post('/modify',async()=>{
 
 })
 

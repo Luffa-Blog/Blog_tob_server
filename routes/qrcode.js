@@ -11,8 +11,9 @@ router.post('/', async (req, res) => {
     req.session.qrcode = code.text;
     console.log(req.session);
     res.setHeader('Content-Type', "image/svg+xml")
-    // formatResponse(200, "请求成功", code.data)
-    res.send(code.data);
+    // 
+    // res.send(code.data);
 
+    res.send(formatResponse(200, "请求成功", code.data));
 })
 module.exports = router
